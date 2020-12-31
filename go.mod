@@ -1,4 +1,4 @@
-module github.com/RockKeeper/arangodb-go-orm
+module gopkg.in/RockKeeper/arangodb-go-orm.v1
 
 go 1.15
 
