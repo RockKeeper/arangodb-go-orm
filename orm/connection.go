@@ -23,39 +23,6 @@ type DatabaseConnection struct {
 	currentContext    context.Context
 }
 
-func (dc *DatabaseConnection) DB(database string) *DatabaseConnection {
-
-	dc.currentDatabase = dc.GetDB(database)
-	dc.currentCollection = nil
-
-	return dc
-}
-
-func (dc *DatabaseConnection) GetDB(database string) driver.Database {
-
-	db, err := dc.httpClient.Database(dc.currentContext, database)
-	if err != nil {
-		panic(err)
-	}
-
-	return db
-}
-
-func (dc *DatabaseConnection) Collection(collectionName string) *Collection {
-	collection, err := dc.currentDatabase.Collection(dc.currentContext, collectionName)
-	if err != nil {
-		// handle error
-	}
-
-	currentCollection := &Collection{
-		Name:               collectionName,
-		collection:         collection,
-		databaseConnection: dc,
-	}
-
-	return currentCollection
-}
-
 func NewDatabaseConnection(connectionData *DatabaseConnectionData) (*DatabaseConnection, error) {
 
 	databaseConnection := &DatabaseConnection{}

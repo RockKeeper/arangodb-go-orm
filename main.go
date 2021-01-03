@@ -1,8 +1,8 @@
 package main
 
 import (
-	debug "gopkg.in/RockKeeper/arangodb-go-orm.v1/debug"
 	orm "gopkg.in/RockKeeper/arangodb-go-orm.v1/orm"
+	debug "gopkg.in/RockKeeper/go-dump.v1"
 )
 
 type Foo struct {
