@@ -12,8 +12,8 @@ type connectionManager struct {
 	db *DatabaseConnection
 }
 
-func (c *connectionManager) GetDB() driver.Database {
-	return c.db.currentDatabase
+func (cm *connectionManager) GetDB() driver.Database {
+	return cm.db.currentDatabase
 }
 
 func (c *connectionManager) GetContext() context.Context {
@@ -45,25 +45,6 @@ type DatabaseConnection struct {
 	currentContext    context.Context
 }
 
-<<<<<<< HEAD
-func (dc *DatabaseConnection) UseDB(database string) *DatabaseConnection {
-
-	dc.currentDatabase = dc.GetDB(database)
-	dc.currentCollection = nil
-
-	return dc
-}
-
-func (dc *DatabaseConnection) GetDB(database string) driver.Database {
-
-	db, err := dc.httpClient.Database(dc.currentContext, database)
-	if err != nil {
-		panic(err)
-	}
-
-	return db
-}
-
 func (dc *DatabaseConnection) UseCollection(collectionName string) *DatabaseConnection {
 	collection, err := dc.currentDatabase.Collection(dc.currentContext, collectionName)
 	if err != nil {
@@ -82,9 +63,6 @@ func (dc *DatabaseConnection) UseCollection(collectionName string) *DatabaseConn
 }
 
 func InitDatabaseConnection(connectionData *DatabaseConnectionData) (*DatabaseConnection, error) {
-=======
-func NewDatabaseConnection(connectionData *DatabaseConnectionData) (*DatabaseConnection, error) {
->>>>>>> 90971f45efcc5afbee64317965121a4e285976e6
 
 	databaseConnection := &DatabaseConnection{}
 
