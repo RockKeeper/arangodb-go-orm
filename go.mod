@@ -7,4 +7,5 @@ require (
 	github.com/json-iterator/go v1.1.10
 	github.com/mitchellh/mapstructure v1.4.0 // indirect
 	github.com/oleiade/reflections v1.0.1
+	gopkg.in/RockKeeper/go-dump.v1 v1.0.0-20210103114414-e14e9fe7a06c
 )

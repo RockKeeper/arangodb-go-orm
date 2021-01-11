@@ -45,6 +45,7 @@ type DatabaseConnection struct {
 	currentContext    context.Context
 }
 
+<<<<<<< HEAD
 func (dc *DatabaseConnection) UseDB(database string) *DatabaseConnection {
 
 	dc.currentDatabase = dc.GetDB(database)
@@ -81,6 +82,9 @@ func (dc *DatabaseConnection) UseCollection(collectionName string) *DatabaseConn
 }
 
 func InitDatabaseConnection(connectionData *DatabaseConnectionData) (*DatabaseConnection, error) {
+=======
+func NewDatabaseConnection(connectionData *DatabaseConnectionData) (*DatabaseConnection, error) {
+>>>>>>> 90971f45efcc5afbee64317965121a4e285976e6
 
 	databaseConnection := &DatabaseConnection{}
 

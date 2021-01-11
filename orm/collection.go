@@ -65,6 +65,7 @@ func (c *Collection) FindByID(id string, doc DocumentInterface) error {
 	return nil
 }
 
+<<<<<<< HEAD
 func (c *Collection) FindByFilter(filter string, doc DocumentInterface) ([]DocumentInterface, error) {
 
 	var docs []DocumentInterface
@@ -146,6 +147,11 @@ func (c *Collection) FindByFilter(filter string, doc DocumentInterface) ([]Docum
 
 // 	return doc, nil
 // }
+=======
+func (c *Collection) FindAll(doc DocumentInterface) ([]DocumentInterface, error) {
+	return c.databaseConnection.FindByQuery(fmt.Sprintf("FOR d IN %s RETURN d", c.Name), nil, doc)
+}
+>>>>>>> 90971f45efcc5afbee64317965121a4e285976e6
 
 func GetType(arr interface{}) reflect.Type {
 	return reflect.TypeOf(arr).Elem()
