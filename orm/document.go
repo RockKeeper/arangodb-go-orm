@@ -9,18 +9,25 @@ import (
 	"github.com/arangodb/go-driver"
 )
 
+const tagName = "validate"
+
 type DocumentInterface interface {
 	SetMeta(meta driver.DocumentMeta)
 	SetKey(key string)
 	GetBaseFieldNameByTag(tag string) string
+	GetCollection() string
+	FindAll() ([]DocumentInterface, error)
 }
 
 type Document struct {
-	ID  string `json:"_id,omitempty"`
-	Rev string `json:"-"`
-	Key string `json:"_key,omitempty"`
-
+	ID   string              `json:"_id,omitempty"`
+	Rev  string              `json:"-"`
+	Key  string              `json:"_key,omitempty"`
 	Meta driver.DocumentMeta `json:"-"`
+}
+
+func (d *Document) GetCollection() string {
+	return ""
 }
 
 func (d Document) GetBaseFieldNameByTag(tag string) string {

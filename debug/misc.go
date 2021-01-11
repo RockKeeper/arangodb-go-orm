@@ -8,9 +8,8 @@ import (
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
-func Dump(object interface{}, label string) {
+func Dump(object interface{}) {
 	fmt.Println("------------ Dump Start -------------------")
-	fmt.Println(label)
 	fmt.Printf("%v", object)
 	fmt.Println("")
 	fmt.Println("------------ Dump End ---------------------")
